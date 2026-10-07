@@ -1,7 +1,7 @@
 # 🚀 Ultimate Jenkins CI/CD Full Course – Zero to Pro  
 ### *By Shubham Gour (@theshubhamgour)*  
 
-
+---
 ---
 
 <img width="1280" height="720" alt="Black and Green Bold Trading  YouTube Thumbnail (1)" src="https://github.com/user-attachments/assets/6a617c88-0f9e-4c95-b6f7-d193c700ee65" />
