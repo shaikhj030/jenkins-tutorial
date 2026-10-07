@@ -3,22 +3,30 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                dir('3-java-jenkins-docker-app') {
                 sh 'mvn clean package'
+                } 
             }
         }
         stage('Test') {
             steps {
+                dir('3-java-jenkins-docker-app') {
                 sh 'mvn test'
+                }
             }
         }
         stage('Docker Build') {
             steps {
+                dir('3-java-jenkins-docker-app') {
                 sh 'docker build -t java-jenkins-docker:latest .'
+                }
             }
         }
         stage('Docker Run') {
             steps {
+                dir('3-java-jenkins-docker-app') {
                 sh 'docker run --rm java-jenkins-docker:latest'
+                }
             }
         }        
     }
