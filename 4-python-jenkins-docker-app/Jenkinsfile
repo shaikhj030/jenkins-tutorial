@@ -34,7 +34,7 @@ pipeline {
                 dir('4-python-jenkins-docker-app') {
                           withCredentials([usernameColonPassword(credentialsId: 'dockerhub', variable: 'Dockerhublogin'), usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubpass', usernameVariable: 'dockerhubuser')]) {
                         sh '''
-                            docker login -u $dockerhubuser -p $dockerhub
+                            docker login -u $dockerhubuser -p $dockerhubpass
                             docker tag python-app:$BUILD_ID  jaffardocker1991/python-app:$BUILD_ID
                             docker push jaffardocker1991/python-app:latest
                             docker rmi jaffardocker1991/python-app:$BUILD_ID
