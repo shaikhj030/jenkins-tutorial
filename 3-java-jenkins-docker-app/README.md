@@ -3,6 +3,7 @@
 This repository contains a **minimal Java application** designed to demonstrate a complete CI/CD workflow using **Jenkins**, **Maven**, **Docker**, and **Docker Compose**.
 
 ---
+---
 
 ## 📖 Overview
 
