@@ -32,9 +32,18 @@ pipeline {
         stage('Docker login') {
             steps {
                withCredentials([usernameColonPassword(credentialsId: 'dockerhub', variable: 'Dockerhublogin'), usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubpass', usernameVariable: 'dockerhubuser')]) {
-               sh 'docker login -u $dockerhubuser -p dockerhubpass'
+               sh 'docker login -u $dockerhubuser -p $dockerhubpass'
              } 
            }
-        }    
+        }  
+        stage('Docker tag and push') {
+            steps {
+                dir('3-java-jenkins-docker-app') {
+                sh "docker tag java-jenkins  jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
+                sh "docker push jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
+                }
+            }
+        }
+        
     }
 }
