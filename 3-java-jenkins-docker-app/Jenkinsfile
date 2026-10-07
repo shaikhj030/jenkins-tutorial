@@ -38,7 +38,7 @@ pipeline {
         }  
         stage('Docker tag and push') {
             steps {
-                sh "docker tag java-jenkins  jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
+                sh "docker tag java-jenkins-docker:${BUILD_ID}  jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
                 sh "docker push jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
                 
             }
