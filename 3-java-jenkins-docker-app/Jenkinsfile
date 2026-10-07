@@ -47,7 +47,6 @@ pipeline {
                 // Clean up the local copies so they don't waste disk space
                 sh "docker rmi jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
                 sh "docker rmi java-jenkins-docker:${BUILD_ID}"
-                
             }
         }
     }
