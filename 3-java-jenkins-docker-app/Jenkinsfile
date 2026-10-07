@@ -18,14 +18,14 @@ pipeline {
         stage('Docker Build') {
             steps {
                 dir('3-java-jenkins-docker-app') {
-                sh 'docker build -t java-jenkins-docker:latest .'
+                sh 'docker build -t java-jenkins-docker:${BUILD_ID} .'
                 }
             }
         }
         stage('Docker Run') {
             steps {
                 dir('3-java-jenkins-docker-app') {
-                sh 'docker run --rm java-jenkins-docker:latest'
+                sh 'docker run --rm java-jenkins-docker:${BUILD_ID}'
                 }
             }
         }
@@ -38,10 +38,9 @@ pipeline {
         }  
         stage('Docker tag and push') {
             steps {
-                dir('3-java-jenkins-docker-app') {
                 sh "docker tag java-jenkins  jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
                 sh "docker push jaffardocker1991/java-jenkins-docker:${BUILD_ID}"
-                }
+                
             }
         }
         
